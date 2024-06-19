@@ -9,4 +9,5 @@ Route::get('admin/password/forgot', [AdminAuthController::class, 'forgotPassword
 
 Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::post('logout', [AdminAuthController::class, 'logout'])->name('logout');
 });
