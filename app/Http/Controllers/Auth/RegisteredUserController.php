@@ -45,6 +45,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+        toastr()->success('Account created successfully');
         return redirect(route('dashboard', absolute: false));
     }
 }

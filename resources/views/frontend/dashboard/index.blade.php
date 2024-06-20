@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <section id="dashboard">
+    <section id="dashboard" style="padding-top: 20px !important">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">

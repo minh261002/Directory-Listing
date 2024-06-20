@@ -14,8 +14,9 @@ class EmailVerificationPromptController extends Controller
      */
     public function __invoke(Request $request): RedirectResponse|View
     {
+        toastr()->info('Please verify your email address to continue');
         return $request->user()->hasVerifiedEmail()
-                    ? redirect()->intended(route('dashboard', absolute: false))
-                    : view('auth.verify-email');
+            ? redirect()->intended(route('dashboard', absolute: false))
+            : view('auth.verify-email');
     }
 }

@@ -1,39 +1,73 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
-        @csrf
+@extends('frontend.layouts.master')
 
-        <!-- Password Reset Token -->
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+@section('content')
+    <section class="wsus__login_page" style="padding-top:20px !important">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-5 col-xl-6 col-md-9 col-lg-7 m-auto">
+                    <div class="wsus__login_area">
+                        <h2>Welcome back!</h2>
+                        <p>Reset Yout Password</p>
+                        <form method="POST" action="{{ route('password.store') }}">
+                            @csrf
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
+                            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <label>Email</label>
+                                        <input type="email" name="email" placeholder="Email"
+                                            value="{{ request()->get('email') }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <label>password</label>
+                                        <input type="password" name="password" placeholder="Password">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <label>Confirm Password</label>
+                                        <input type="password" name="password_confirmation" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <div class="wsus__login_imput">
+                                        <button type="submit">Reset Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="or"><span>or</span></p>
+                        <ul class="d-flex">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                        </ul>
+                        <p class="create_account">Dont’t have an account ? <a href="{{ route('register') }}">Create
+                                Account</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </section>
+@endsection

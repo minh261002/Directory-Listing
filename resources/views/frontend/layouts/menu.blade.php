@@ -29,8 +29,8 @@
     ===========================-->
 <nav class="navbar navbar-expand-lg main_menu">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img src="images/logo.png" alt="DB.Card">
+        <a class="navbar-brand" href="{{ route('home') }}">
+            <img src="{{ asset('frontend/images/logo.png') }}" alt="{{ env('APP_NAME') }}">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
