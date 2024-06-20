@@ -56,7 +56,17 @@
 
     <!-- Template JS File -->
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
-
+    <script>
+        $.uploadPreview({
+            input_field: "#image-upload",
+            preview_box: "#image-preview",
+            label_field: "#image-label",
+            label_default: "Choose File",
+            label_selected: "Change File",
+            no_label: false,
+            success_callback: null
+        })
+    </script>
     @stack('scripts')
 </body>
 
