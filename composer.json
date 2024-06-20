@@ -9,9 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "cviebrock/eloquent-sluggable": "^11.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "php-flasher/flasher-toastr-laravel": "^2.0"
+        "php-flasher/flasher-toastr-laravel": "^2.0",
+        "yajra/laravel-datatables": "^11.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.0",

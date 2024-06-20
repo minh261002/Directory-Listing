@@ -33,6 +33,19 @@
                             href="{{ route('admin.hero') }}">Hero</a></li>
                 </ul>
             </li>
+
+            <li
+                class="dropdown {{ setSidebarActive(['admin.category.index', 'admin.category.create', 'admin.category.edit']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-th"></i>
+                    <span>Listing</span></a>
+                <ul class="dropdown-menu">
+                    <li
+                        class="{{ setSidebarActive(['admin.category.index', 'admin.category.create', 'admin.category.edit']) }}">
+                        <a class="nav-link" href="{{ route('admin.category.index') }}">Categories</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\HeroController;
@@ -21,4 +22,7 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
     /* Hero */
     Route::get('hero', [HeroController::class, 'index'])->name('hero');
     Route::put('hero', [HeroController::class, 'updateHeroSection'])->name('hero.update');
+
+    /* Category */
+    Route::resource('category', CategoryController::class)->except(['show']);
 });
