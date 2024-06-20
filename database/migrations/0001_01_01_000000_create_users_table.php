@@ -15,8 +15,16 @@ return new class extends Migration {
             $table->string('avatar')->default('default/default.png');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->longText('about')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('website')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('instagram')->nullable();
             $table->enum('user_type', ['user', 'admin'])->default('user');
             $table->rememberToken();
             $table->timestamps();

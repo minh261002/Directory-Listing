@@ -18049,6 +18049,150 @@ namespace Illuminate\Support\Facades {
             }
     }
 
+namespace Flasher\Laravel\Facade {
+            /**
+     * 
+     *
+     * @method static NotificationBuilder title(string $message)
+     * @method static NotificationBuilder message(string $message)
+     * @method static NotificationBuilder type(string $message)
+     * @method static NotificationBuilder options(array $options, bool $merge = true)
+     * @method static NotificationBuilder option(string $name, $value)
+     * @method static NotificationBuilder priority(int $priority)
+     * @method static NotificationBuilder hops(int $amount)
+     * @method static NotificationBuilder keep()
+     * @method static NotificationBuilder delay(int $delay)
+     * @method static NotificationBuilder translate(array $parameters = [], ?string $locale = null)
+     * @method static NotificationBuilder handler(string $handler)
+     * @method static NotificationBuilder context(array $context)
+     * @method static NotificationBuilder when(bool|\Closure $condition)
+     * @method static NotificationBuilder unless(bool|\Closure $condition)
+     * @method static NotificationBuilder with(StampInterface[] $stamps = array())
+     * @method static NotificationBuilder withStamp(StampInterface $stamp)
+     * @method static Envelope            success(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            error(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            info(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            warning(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            flash(?string $type = null, ?string $message = null, array $options = [], ?string $title = null)
+     * @method static Envelope            preset(string $preset, array $parameters = [])
+     * @method static Envelope            operation(string $operation, string|object|null $resource = null)
+     * @method static Envelope            created(string|object|null $resource = null)
+     * @method static Envelope            updated(string|object|null $resource = null)
+     * @method static Envelope            saved(string|object|null $resource = null)
+     * @method static Envelope            deleted(string|object|null $resource = null)
+     * @method static Envelope            push()
+     * @method static Envelope            addSuccess(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            addError(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            addInfo(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            addWarning(string $message, array $options = [], ?string $title = null)
+     * @method static Envelope            addFlash(?string $type = null, ?string $message = null, array $options = [], ?string $title = null)
+     * @method static Envelope            addPreset(string $preset, array $parameters = [])
+     * @method static Envelope            addCreated(string|object|null $resource = null)
+     * @method static Envelope            addUpdated(string|object|null $resource = null)
+     * @method static Envelope            addDeleted(string|object|null $resource = null)
+     * @method static Envelope            addSaved(string|object|null $resource = null)
+     * @method static Envelope            addOperation(string $operation, string|object|null $resource = null)
+     * @method static Envelope            getEnvelope()
+     */        class Flasher {
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function use($alias)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->use($alias);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function create($alias)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->create($alias);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function render($presenter = 'html', $criteria = [], $context = [])
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->render($presenter, $criteria, $context);
+        }
+            }
+    }
+
+namespace Flasher\Toastr\Laravel\Facade {
+            /**
+     * 
+     *
+     * @method static ToastrBuilder flash(StampInterface[] $stamps = array())
+     * @method static ToastrBuilder type(string $type, string $message = null, array $options = array())
+     * @method static ToastrBuilder message(string $message)
+     * @method static ToastrBuilder options(array $options, bool $merge = true)
+     * @method static ToastrBuilder option(string $name, $value)
+     * @method static ToastrBuilder success(string $message = null, array $options = array())
+     * @method static ToastrBuilder error(string $message = null, array $options = array())
+     * @method static ToastrBuilder info(string $message = null, array $options = array())
+     * @method static ToastrBuilder warning(string $message = null, array $options = array())
+     * @method static ToastrBuilder priority(int $priority)
+     * @method static ToastrBuilder hops(int $amount)
+     * @method static ToastrBuilder keep()
+     * @method static ToastrBuilder delay(int $delay)
+     * @method static ToastrBuilder now()
+     * @method static ToastrBuilder with(StampInterface[] $stamps = array())
+     * @method static ToastrBuilder withStamp(StampInterface $stamp)
+     * @method static ToastrBuilder handler(string $handler)
+     * @method static Envelope      getEnvelope()
+     * @method static ToastrBuilder title(string $title)
+     * @method static ToastrBuilder closeButton(bool $closeButton = true)
+     * @method static ToastrBuilder closeClass(string $closeClass)
+     * @method static ToastrBuilder closeDuration(int $closeDuration)
+     * @method static ToastrBuilder closeEasing(string $closeEasing)
+     * @method static ToastrBuilder closeHtml(string $closeHtml)
+     * @method static ToastrBuilder closeMethod(string $closeMethod)
+     * @method static ToastrBuilder closeOnHover(bool $closeOnHover = true)
+     * @method static ToastrBuilder containerId(string $containerId)
+     * @method static ToastrBuilder debug(bool $debug = true)
+     * @method static ToastrBuilder escapeHtml(bool $escapeHtml = true)
+     * @method static ToastrBuilder extendedTimeOut(int $extendedTimeOut)
+     * @method static ToastrBuilder hideDuration(int $hideDuration)
+     * @method static ToastrBuilder hideEasing(string $hideEasing)
+     * @method static ToastrBuilder hideMethod(string $hideMethod)
+     * @method static ToastrBuilder iconClass(string $iconClass)
+     * @method static ToastrBuilder messageClass(string $messageClass)
+     * @method static ToastrBuilder newestOnTop(bool $newestOnTop = true)
+     * @method static ToastrBuilder onHidden(string $onHidden)
+     * @method static ToastrBuilder onShown(string $onShown)
+     * @method static ToastrBuilder positionClass(string $positionClass)
+     * @method static ToastrBuilder preventDuplicates(bool $preventDuplicates = true)
+     * @method static ToastrBuilder progressBar(bool $progressBar = true)
+     * @method static ToastrBuilder progressClass(string $progressClass)
+     * @method static ToastrBuilder rtl(bool $rtl = true)
+     * @method static ToastrBuilder showDuration(int $showDuration)
+     * @method static ToastrBuilder showEasing(string $showEasing)
+     * @method static ToastrBuilder showMethod(string $showMethod)
+     * @method static ToastrBuilder tapToDismiss(bool $tapToDismiss = true)
+     * @method static ToastrBuilder target(string $target)
+     * @method static ToastrBuilder timeOut(int $timeOut, bool $extendedTimeOut = null)
+     * @method static ToastrBuilder titleClass(string $titleClass)
+     * @method static ToastrBuilder toastClass(string $toastClass)
+     * @method static ToastrBuilder persistent()
+     */        class Toastr {
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function createNotificationBuilder()
+        {
+                        /** @var \Flasher\Toastr\Prime\Toastr $instance */
+                        return $instance->createNotificationBuilder();
+        }
+            }
+    }
+
 namespace Illuminate\Http {
             /**
      * 
@@ -21707,6 +21851,8 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
+            class Flasher extends \Flasher\Laravel\Facade\Flasher {}
+            class Toastr extends \Flasher\Toastr\Laravel\Facade\Toastr {}
     }
 
 
