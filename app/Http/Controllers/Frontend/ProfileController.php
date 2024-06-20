@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\ProfileUpdateRequest;
+use App\Http\Requests\Frontend\ProfileUpdateRequest;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,9 +12,9 @@ class ProfileController extends Controller
 {
     use FileUploadTrait;
 
-    public function index()
+    function index()
     {
-        return view('admin.profile.index');
+        return view('frontend.dashboard.profile.index');
     }
 
     function update(ProfileUpdateRequest $request)
@@ -36,7 +36,7 @@ class ProfileController extends Controller
         $user->about = $request->about;
         $user->save();
 
-        toastr()->success('Profile updated successfully!');
+        toastr()->success('Profile updated successfully');
         return redirect()->back();
     }
 

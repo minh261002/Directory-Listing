@@ -42,6 +42,7 @@
                                     <div id="image-preview" class="image-preview">
                                         <label for="image-upload" id="image-label">Choose File</label>
                                         <input type="file" name="avatar" id="image-upload" />
+                                        <input type="hidden" name="old_avatar" value="{{ auth()->user()->avatar }}">
                                     </div>
                                 </div>
 
