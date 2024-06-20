@@ -7,7 +7,12 @@
             <a href="{{ route('admin.dashboard') }}">St</a>
         </div>
         <ul class="sidebar-menu">
-
+            <li class="menu-header">Dashboard</li>
+            <li class="{{ setSidebarActive(['admin.dashboard']) }}">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                    <i class="fas fa-fire"></i>
+                    <span>Dashboard</span>
+                </a>
             <li class="menu-header">Starter</li>
             {{-- <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
@@ -20,12 +25,13 @@
             </li> --}}
             {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank
                         Page</span></a></li> --}}
-            <li><a class="nav-link" href="{{ route('admin.hero') }}">
-                    <i class="far fa-square"></i>
-                    <span>
-                        Hero Section
-                    </span>
-                </a>
+            <li class="dropdown {{ setSidebarActive(['admin.hero']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Section</span></a>
+                <ul class="dropdown-menu">
+                    <li class=" {{ setSidebarActive(['admin.hero']) }}"><a class="nav-link"
+                            href="{{ route('admin.hero') }}">Hero</a></li>
+                </ul>
             </li>
         </ul>
     </aside>
