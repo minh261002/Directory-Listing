@@ -70,6 +70,33 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property int $show_at_home
+ * @property int $status
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Location findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereShowAtHome($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Location withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ */
+	class Location extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string|null $avatar
  * @property string $name
  * @property string $email

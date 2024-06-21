@@ -2,36 +2,41 @@
 
 namespace App\Services;
 
-
 class Notify
 {
-    static function success($message)
+    public static function success($message)
     {
-        return notyf()->success($message)
-            ->position('x', 'top')
-            ->position('y', 'right');
-
+        notyf()
+            ->dismissible(true)
+            ->position('x', 'right')
+            ->position('y', 'top')
+            ->success($message);
     }
 
-    static function error($message)
+    public static function error($message)
     {
-        return notyf()->error($message)
-            ->position('x', 'top')
-            ->position('y', 'right');
+        notyf()
+            ->dismissible(true)
+            ->position('x', 'right')
+            ->position('y', 'top')
+            ->error($message);
     }
 
-    static function warning($message)
+    public static function info($message)
     {
-        return notyf()->warning($message)
-            ->position('x', 'top')
-            ->position('y', 'right');
+        notyf()
+            ->dismissible(true)
+            ->position('x', 'right')
+            ->position('y', 'top')
+            ->info($message);
     }
 
-    static function info($message)
+    public static function warning($message)
     {
-        return notyf()->info($message)
-            ->position('x', 'top')
-            ->position('y', 'right');
+        notyf()
+            ->dismissible(true)
+            ->position('x', 'right')
+            ->position('y', 'top')
+            ->warning($message);
     }
-
 }

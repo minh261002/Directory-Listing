@@ -35,7 +35,7 @@
             </li>
 
             <li
-                class="dropdown {{ setSidebarActive(['admin.category.index', 'admin.category.create', 'admin.category.edit']) }}">
+                class="dropdown {{ setSidebarActive(['admin.category.index', 'admin.category.create', 'admin.category.edit', 'admin.location.index', 'admin.location.create', 'admin.location.edit']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-th"></i>
                     <span>Listing</span></a>
@@ -43,6 +43,11 @@
                     <li
                         class="{{ setSidebarActive(['admin.category.index', 'admin.category.create', 'admin.category.edit']) }}">
                         <a class="nav-link" href="{{ route('admin.category.index') }}">Categories</a>
+                    </li>
+
+                    <li
+                        class="{{ setSidebarActive(['admin.location.index', 'admin.location.create', 'admin.location.edit']) }}">
+                        <a class="nav-link" href="{{ route('admin.location.index') }}">Locations</a>
                     </li>
                 </ul>
             </li>
