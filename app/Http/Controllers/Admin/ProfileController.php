@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProfileUpdateRequest;
+use App\Services\Notify;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,7 @@ class ProfileController extends Controller
         $user->about = $request->about;
         $user->save();
 
-        toastr()->success('Profile updated successfully!');
+        Notify::success('Profile updated successfully!');
         return redirect()->back();
     }
 
@@ -49,14 +50,14 @@ class ProfileController extends Controller
 
         $user = Auth::user();
         if (!\Hash::check($request->current_password, $user->password)) {
-            toastr()->error('Current password does not match!');
+            Notify::success('Current password does not match!');
             return redirect()->back();
         }
 
         $user->password = \Hash::make($request->password);
         $user->save();
 
-        toastr()->success('Password updated successfully!');
+        Notify::success('Password updated successfully!');
         return redirect()->back();
     }
 }

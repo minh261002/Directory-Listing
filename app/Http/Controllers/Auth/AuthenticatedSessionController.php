@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Services\Notify;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        toastr()->success('Login successful');
+        Notify::success('Login successfully');
         if (Auth::user()->user_type === 'admin') {
             return redirect()->intended(route('admin.dashboard', absolute: false));
         }
@@ -47,6 +48,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
+        Notify::success('Logout successfully');
         return redirect('/');
     }
 }

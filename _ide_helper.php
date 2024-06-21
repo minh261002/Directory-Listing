@@ -18502,70 +18502,45 @@ namespace Flasher\Laravel\Facade {
             }
     }
 
-namespace Flasher\Toastr\Laravel\Facade {
+namespace Flasher\Notyf\Laravel\Facade {
             /**
      * 
      *
-     * @method static ToastrBuilder flash(StampInterface[] $stamps = array())
-     * @method static ToastrBuilder type(string $type, string $message = null, array $options = array())
-     * @method static ToastrBuilder message(string $message)
-     * @method static ToastrBuilder options(array $options, bool $merge = true)
-     * @method static ToastrBuilder option(string $name, $value)
-     * @method static ToastrBuilder success(string $message = null, array $options = array())
-     * @method static ToastrBuilder error(string $message = null, array $options = array())
-     * @method static ToastrBuilder info(string $message = null, array $options = array())
-     * @method static ToastrBuilder warning(string $message = null, array $options = array())
-     * @method static ToastrBuilder priority(int $priority)
-     * @method static ToastrBuilder hops(int $amount)
-     * @method static ToastrBuilder keep()
-     * @method static ToastrBuilder delay(int $delay)
-     * @method static ToastrBuilder now()
-     * @method static ToastrBuilder with(StampInterface[] $stamps = array())
-     * @method static ToastrBuilder withStamp(StampInterface $stamp)
-     * @method static ToastrBuilder handler(string $handler)
-     * @method static Envelope      getEnvelope()
-     * @method static ToastrBuilder title(string $title)
-     * @method static ToastrBuilder closeButton(bool $closeButton = true)
-     * @method static ToastrBuilder closeClass(string $closeClass)
-     * @method static ToastrBuilder closeDuration(int $closeDuration)
-     * @method static ToastrBuilder closeEasing(string $closeEasing)
-     * @method static ToastrBuilder closeHtml(string $closeHtml)
-     * @method static ToastrBuilder closeMethod(string $closeMethod)
-     * @method static ToastrBuilder closeOnHover(bool $closeOnHover = true)
-     * @method static ToastrBuilder containerId(string $containerId)
-     * @method static ToastrBuilder debug(bool $debug = true)
-     * @method static ToastrBuilder escapeHtml(bool $escapeHtml = true)
-     * @method static ToastrBuilder extendedTimeOut(int $extendedTimeOut)
-     * @method static ToastrBuilder hideDuration(int $hideDuration)
-     * @method static ToastrBuilder hideEasing(string $hideEasing)
-     * @method static ToastrBuilder hideMethod(string $hideMethod)
-     * @method static ToastrBuilder iconClass(string $iconClass)
-     * @method static ToastrBuilder messageClass(string $messageClass)
-     * @method static ToastrBuilder newestOnTop(bool $newestOnTop = true)
-     * @method static ToastrBuilder onHidden(string $onHidden)
-     * @method static ToastrBuilder onShown(string $onShown)
-     * @method static ToastrBuilder positionClass(string $positionClass)
-     * @method static ToastrBuilder preventDuplicates(bool $preventDuplicates = true)
-     * @method static ToastrBuilder progressBar(bool $progressBar = true)
-     * @method static ToastrBuilder progressClass(string $progressClass)
-     * @method static ToastrBuilder rtl(bool $rtl = true)
-     * @method static ToastrBuilder showDuration(int $showDuration)
-     * @method static ToastrBuilder showEasing(string $showEasing)
-     * @method static ToastrBuilder showMethod(string $showMethod)
-     * @method static ToastrBuilder tapToDismiss(bool $tapToDismiss = true)
-     * @method static ToastrBuilder target(string $target)
-     * @method static ToastrBuilder timeOut(int $timeOut, bool $extendedTimeOut = null)
-     * @method static ToastrBuilder titleClass(string $titleClass)
-     * @method static ToastrBuilder toastClass(string $toastClass)
-     * @method static ToastrBuilder persistent()
-     */        class Toastr {
+     * @method static NotyfBuilder addSuccess(string $message, array $options = array())
+     * @method static NotyfBuilder addError(string $message, array $options = array())
+     * @method static NotyfBuilder addWarning(string $message, array $options = array())
+     * @method static NotyfBuilder addInfo(string $message, array $options = array())
+     * @method static NotyfBuilder addFlash(NotificationInterface|string $type, string $message = null, array $options = array())
+     * @method static NotyfBuilder flash(StampInterface[] $stamps = array())
+     * @method static NotyfBuilder type(string $type, string $message = null, array $options = array())
+     * @method static NotyfBuilder message(string $message)
+     * @method static NotyfBuilder options(array $options, bool $merge = true)
+     * @method static NotyfBuilder option(string $name, string $value)
+     * @method static NotyfBuilder success(string $message = null, array $options = array())
+     * @method static NotyfBuilder error(string $message = null, array $options = array())
+     * @method static NotyfBuilder info(string $message = null, array $options = array())
+     * @method static NotyfBuilder warning(string $message = null, array $options = array())
+     * @method static NotyfBuilder priority(int $priority)
+     * @method static NotyfBuilder hops(int $amount)
+     * @method static NotyfBuilder keep()
+     * @method static NotyfBuilder delay(int $delay)
+     * @method static NotyfBuilder now()
+     * @method static NotyfBuilder with(StampInterface[] $stamps = array())
+     * @method static NotyfBuilder withStamp(StampInterface $stamp)
+     * @method static NotyfBuilder handler(string $handler)
+     * @method static Envelope     getEnvelope()
+     * @method static NotyfBuilder duration(int $duration)
+     * @method static NotyfBuilder ripple(bool $ripple)
+     * @method static NotyfBuilder position(string $position, string $value)
+     * @method static NotyfBuilder dismissible(bool $dismissible)
+     */        class Notyf {
                     /**
          * 
          *
          * @static 
          */        public static function createNotificationBuilder()
         {
-                        /** @var \Flasher\Toastr\Prime\Toastr $instance */
+                        /** @var \Flasher\Notyf\Prime\Notyf $instance */
                         return $instance->createNotificationBuilder();
         }
             }
@@ -22557,7 +22532,7 @@ namespace  {
             class Vite extends \Illuminate\Support\Facades\Vite {}
             class Livewire extends \Livewire\Livewire {}
             class Flasher extends \Flasher\Laravel\Facade\Flasher {}
-            class Toastr extends \Flasher\Toastr\Laravel\Facade\Toastr {}
+            class Notyf extends \Flasher\Notyf\Laravel\Facade\Notyf {}
             class DataTables extends \Yajra\DataTables\Facades\DataTables {}
     }
 

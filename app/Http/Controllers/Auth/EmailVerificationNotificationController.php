@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Services\Notify;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class EmailVerificationNotificationController extends Controller
 
         $request->user()->sendEmailVerificationNotification();
 
-        toastr()->info('A new verification link has been sent to the email address you provided during registration.');
+        Notify::success('A new verification link has been sent to the email address you provided during registration.');
         return back()->with('status', 'verification-link-sent');
     }
 }

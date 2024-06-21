@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\CategoryDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CategoryStoreRequest;
+use App\Services\Notify;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -44,7 +45,7 @@ class CategoryController extends Controller
         $category->show_at_home = $request->show_at_home;
         $category->save();
 
-        toastr()->success('Category Created Successfully');
+        Notify::success('Category Created Successfully');
         return redirect()->route('admin.category.index');
     }
 
@@ -82,7 +83,7 @@ class CategoryController extends Controller
         $category->show_at_home = $request->show_at_home;
 
         $category->save();
-        toastr()->success('Category Updated Successfully');
+        Notify::success('Category Updated Successfully');
         return redirect()->route('admin.category.index');
     }
 
@@ -98,7 +99,7 @@ class CategoryController extends Controller
         $this->deleteFile($category->image_icon);
 
         $category->delete();
-        toastr()->success('Category Deleted Successfully');
+        Notify::success('Category Deleted Successfully');
         return response()->json(['success' => true]);
     }
 }

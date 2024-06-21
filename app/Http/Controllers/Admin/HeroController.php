@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Notify;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 use App\Models\Hero;
@@ -30,7 +31,7 @@ class HeroController extends Controller
             ]
         );
 
-        toastr()->success('Updated Successfully');
+        Notify::success('Updated Successfully');
 
         return redirect()->back();
     }
