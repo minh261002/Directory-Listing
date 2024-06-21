@@ -27,7 +27,7 @@
                         Page</span></a></li> --}}
             <li class="dropdown {{ setSidebarActive(['admin.hero']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Section</span></a>
+                    <span>Sections</span></a>
                 <ul class="dropdown-menu">
                     <li class=" {{ setSidebarActive(['admin.hero']) }}"><a class="nav-link"
                             href="{{ route('admin.hero') }}">Hero</a></li>
@@ -35,34 +35,25 @@
             </li>
 
             <li
-                class="dropdown {{ setSidebarActive([
-                    'admin.category.index',
-                    'admin.category.create',
-                    'admin.category.edit',
-                    'admin.location.index',
-                    'admin.location.create',
-                    'admin.location.edit',
-                    'admin.amenity.index',
-                    'admin.amenity.create',
-                    'admin.amenity.edit',
-                ]) }}">
+                class="dropdown {{ setSidebarActive(['admin.category.*', 'admin.location.*', 'admin.amenity.*', 'admin.listing.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-th"></i>
-                    <span>Listing</span></a>
+                    <span>Listings</span></a>
                 <ul class="dropdown-menu">
-                    <li
-                        class="{{ setSidebarActive(['admin.category.index', 'admin.category.create', 'admin.category.edit']) }}">
+                    <li class="{{ setSidebarActive(['admin.category.*']) }}">
                         <a class="nav-link" href="{{ route('admin.category.index') }}">Categories</a>
                     </li>
 
-                    <li
-                        class="{{ setSidebarActive(['admin.location.index', 'admin.location.create', 'admin.location.edit']) }}">
+                    <li class="{{ setSidebarActive(['admin.location.*']) }}">
                         <a class="nav-link" href="{{ route('admin.location.index') }}">Locations</a>
                     </li>
 
-                    <li
-                        class="{{ setSidebarActive(['admin.amenity.index', 'admin.amenity.create', 'admin.amenity.edit']) }}">
+                    <li class="{{ setSidebarActive(['admin.amenity.*']) }}">
                         <a class="nav-link" href="{{ route('admin.amenity.index') }}">Amenities</a>
+                    </li>
+
+                    <li class="{{ setSidebarActive(['admin.listing.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.listing.index') }}">Listings</a>
                     </li>
                 </ul>
             </li>
