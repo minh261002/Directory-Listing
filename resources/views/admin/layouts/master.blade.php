@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/components.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap-iconpicker.min.css') }}">
+
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 </head>
 
@@ -61,6 +63,9 @@
     <script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="{{ asset('admin/assets/js/bootstrap-iconpicker.min.js') }}"></script>
+
     <script>
         $('body').on('click', '.delete', function(e) {
             e.preventDefault()

@@ -4,12 +4,12 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="{{ route('admin.category.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route('admin.location.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Categories</h1>
+            <h1>Locations</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
-                <div class="breadcrumb-item active"><a href="{{ route('admin.category.index') }}">Locations</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.location.index') }}">Locations</a></div>
                 <div class="breadcrumb-item">Edit Location</div>
             </div>
         </div>

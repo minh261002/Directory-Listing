@@ -15,6 +15,19 @@ namespace App\Models{
 /**
  * 
  *
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity findSimilarSlugs(string $attribute, array $config, string $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Amenity withUniqueSlugConstraints(\Illuminate\Database\Eloquent\Model $model, string $attribute, array $config, string $slug)
+ */
+	class Amenity extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property string $name
  * @property string $slug

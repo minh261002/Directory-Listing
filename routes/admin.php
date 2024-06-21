@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LocationController;
@@ -28,4 +29,6 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
     Route::resource('category', CategoryController::class)->except(['show']);
     /* Location */
     Route::resource('location', LocationController::class)->except(['show']);
+    /* Amenity */
+    Route::resource('amenity', AmenityController::class)->except(['show']);
 });
