@@ -63,7 +63,34 @@
 
     <!--main/custom js-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        $('body').on('click', '.delete', function(e) {
+            e.preventDefault()
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: $(this).attr('href'),
+                        type: 'DELETE',
+                        data: {
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            location.reload()
+                        }
+                    })
+                }
+            })
+        })
+    </script>
     @stack('scripts')
 </body>
 

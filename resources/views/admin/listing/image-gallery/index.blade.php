@@ -24,7 +24,7 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.listing-video-gallery.store') }}" method="POST"
+                            <form action="{{ route('admin.listing-gallery.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
 

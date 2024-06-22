@@ -12,9 +12,17 @@
                 </ul>
             </div>
             <div class="col-xl-6 col-md-5">
-                <div class="wsus__topbar_right">
-                    <a href="{{ route('login') }}"><i class="fas fa-user"></i> Login</a>
-                </div>
+                @auth
+                    <div class="wsus__topbar_right">
+                        <a href="{{ route('dashboard') }}"><i class="fas fa-user"></i> {{ Auth::user()->name }}</a>
+                    </div>
+                @endauth
+
+                @guest
+                    <div class="wsus__topbar_right">
+                        <a href="{{ route('login') }}"><i class="fas fa-user"></i> Login</a>
+                    </div>
+                @endguest
             </div>
         </div>
     </div>
@@ -70,7 +78,7 @@
                     <a class="nav-link" href="contact.html">contact us</a>
                 </li>
             </ul>
-            <a class="user_btn" href="dsahboard.html"><i class="far fa-plus"></i> add listing</a>
+            <a class="user_btn" href="{{ route('listing.create') }}"><i class="far fa-plus"></i> add listing</a>
         </div>
     </div>
 </nav>
