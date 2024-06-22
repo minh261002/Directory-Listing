@@ -166,6 +166,14 @@ class ListingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $listing = Listing::findOrFail($id);
+
+        if (!empty($listing->image)) {
+            $this->deleteFile($listing->image);
+        }
+
+        $listing->delete();
+        Notify::success('Listing deleted successfully!');
+        return response()->json(['success' => true]);
     }
 }

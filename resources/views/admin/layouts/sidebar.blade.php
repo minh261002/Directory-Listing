@@ -35,7 +35,15 @@
             </li>
 
             <li
-                class="dropdown {{ setSidebarActive(['admin.category.*', 'admin.location.*', 'admin.amenity.*', 'admin.listing.*']) }}">
+                class="dropdown {{ setSidebarActive([
+                    'admin.category.*',
+                    'admin.location.*',
+                    'admin.amenity.*',
+                    'admin.listing.*',
+                    'admin.listing-schedule.*',
+                    'admin.listing-gallery.*',
+                    'admin.listing-video-gallery.*',
+                ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-th"></i>
                     <span>Listings</span></a>
@@ -52,7 +60,13 @@
                         <a class="nav-link" href="{{ route('admin.amenity.index') }}">Amenities</a>
                     </li>
 
-                    <li class="{{ setSidebarActive(['admin.listing.*']) }}">
+                    <li
+                        class="{{ setSidebarActive([
+                            'admin.listing.*',
+                            'admin.listing-schedule.*',
+                            'admin.listing-gallery.*',
+                            'admin.listing-video-gallery.*',
+                        ]) }}">
                         <a class="nav-link" href="{{ route('admin.listing.index') }}">Listings</a>
                     </li>
                 </ul>
