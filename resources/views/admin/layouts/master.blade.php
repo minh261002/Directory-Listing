@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap-iconpicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/assets/modules/select2/dist/css/select2.min.css') }}">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet"
+        href="{{ asset('admin/assets/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
+
     <link rel="stylesheet"
         href="{{ asset('admin/assets/modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
 
@@ -71,7 +73,15 @@
     <script src="{{ asset('admin/assets/js/bootstrap-iconpicker.min.js') }}"></script>
 
     <script src="{{ asset('admin/assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+
+
+
     <script>
+        $(document).ready(function() {
+            $('.timepicker').timepicker({});
+        });
+
         $('body').on('click', '.delete', function(e) {
             e.preventDefault()
             Swal.fire({

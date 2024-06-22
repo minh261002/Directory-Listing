@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ListingController;
 use App\Http\Controllers\Admin\ListingImageGalleryController;
+use App\Http\Controllers\Admin\ListingScheduleController;
 use App\Http\Controllers\Admin\ListingVideoGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
@@ -39,4 +40,6 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
     Route::resource('listing-gallery', ListingImageGalleryController::class);
     /* Listing Video Gallery */
     Route::resource('listing-video-gallery', ListingVideoGalleryController::class);
+    /* Listing Schedule */
+    Route::resource('listing-schedule', ListingScheduleController::class);
 });

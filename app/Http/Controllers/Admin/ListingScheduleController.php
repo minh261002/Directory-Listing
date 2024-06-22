@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\ListingScheduleDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\ListingSchedule;
+use App\Services\Notify;
 use Illuminate\Http\Request;
+use App\Models\Listing;
 
 class ListingScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(ListingScheduleDataTable $dataTable)
     {
-        //
+        $listing = Listing::where('id', request()->id)->first();
+        return $dataTable->render('admin.listing.schedule.index', compact('listing'));
     }
 
     /**
@@ -20,7 +25,8 @@ class ListingScheduleController extends Controller
      */
     public function create()
     {
-        //
+        $listing = Listing::where('id', request()->id)->first();
+        return view('admin.listing.schedule.create', compact('listing'));
     }
 
     /**
@@ -28,7 +34,24 @@ class ListingScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = request()->id;
+
+        $request->validate([
+            'day' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
+        ]);
+
+        $schedule = new ListingSchedule();
+        $schedule->listing_id = $id;
+        $schedule->day = $request->day;
+        $schedule->start_time = $request->start_time;
+        $schedule->end_time = $request->end_time;
+        $schedule->status = $request->status;
+        $schedule->save();
+
+        Notify::success('Schedule added successfully!');
+        return redirect()->route('admin.listing-schedule.index', ['id' => $id]);
     }
 
     /**
@@ -44,7 +67,9 @@ class ListingScheduleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $schedule = ListingSchedule::find($id);
+        $listing = Listing::where('id', $schedule->listing_id)->first();
+        return view('admin.listing.schedule.edit', compact('schedule', 'listing'));
     }
 
     /**
@@ -52,7 +77,15 @@ class ListingScheduleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $schedule = ListingSchedule::find($id);
+        $schedule->day = $request->day;
+        $schedule->start_time = $request->start_time;
+        $schedule->end_time = $request->end_time;
+        $schedule->status = $request->status;
+        $schedule->save();
+
+        Notify::success('Schedule updated successfully!');
+        return redirect()->route('admin.listing-schedule.index', ['id' => $schedule->listing_id]);
     }
 
     /**
@@ -60,6 +93,10 @@ class ListingScheduleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $schedule = ListingSchedule::find($id);
+        $schedule->delete();
+
+        Notify::success('Schedule deleted successfully!');
+        return response()->json(['success' => true]);
     }
 }
