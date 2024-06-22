@@ -33,7 +33,7 @@ class ListingDataTable extends DataTable
                                 <i class="fas fa-cog"></i>
                             </button>
                             <div class="dropdown-menu dropleft" x-placement="left-start" style="position: absolute; transform: translate3d(-2px, 0px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                <a class="dropdown-item" href="' . route('admin.listing.show', $query->id) . '"><i class="fas fa-eye"></i> View</a>
+                                <a class="dropdown-item" href="' . route('admin.listing-gallery.index', ['id' => $query->id]) . '">Image Gallery</a>
                             </div>
                         </div>';
 

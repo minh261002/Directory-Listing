@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AmenityController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ListingController;
+use App\Http\Controllers\Admin\ListingImageGalleryController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\HeroController;
@@ -33,4 +34,6 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
     Route::resource('amenity', AmenityController::class)->except(['show']);
     /* Listing */
     Route::resource('listing', ListingController::class);
+    /* Listing Image Gallery */
+    Route::resource('listing-gallery', ListingImageGalleryController::class);
 });
