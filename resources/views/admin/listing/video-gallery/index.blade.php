@@ -6,11 +6,11 @@
             <div class="section-header-back">
                 <a href="{{ route('admin.listing.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Listing Image Gallery</h1>
+            <h1>Listing Video Gallery</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
-                <div class="breadcrumb-item active"><a href="{{ route('admin.listing-gallery.index') }}">Dashboard</a></div>
-                <div class="breadcrumb-item">Listing Image Gallery</div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.listing.index') }}">Listing</a></div>
+                <div class="breadcrumb-item">Listing Video Gallery</div>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Add Image For
+                            <h4>Add Video For
                                 <span class="text-primary">{{ $listing->title }}</span>
                             </h4>
                         </div>
@@ -35,10 +35,18 @@
                                 <input type="hidden" name="listing_id" value="{{ $listing->id }}">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <label for="image">Image
-                                            <code>(Multiple Image Supported)</code>
-                                        </label>
-                                        <input type="file" name="images[]" id="image" class="form-control" multiple>
+                                        <label for="video">Video</label>
+                                        <input type="file" name="video" id="video" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <button id="show_input" class="btn btn-sm btn-outline-black my-3">Add Video
+                                            URL</button>
+                                    </div>
+
+                                    <div class="col-md-12 d-none">
+                                        <label for="">Video URL</label>
+                                        <input type="text" id="video_url" name="video_url" class="form-control">
                                     </div>
                                 </div>
 
@@ -57,21 +65,24 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Listing Image Gallery Of
+                            <h4>Listing Video Gallery Of
                                 <span class="text-primary">{{ $listing->title }}</span>
                             </h4>
                         </div>
 
                         <div class="card-body">
                             <div class="row">
-                                @foreach ($images as $image)
+                                @foreach ($videos as $item)
                                     <div class="col-md-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <img src="{{ asset($image->image) }}" alt="" class="img-fluid">
+                                                <video width="100%" controls>
+                                                    <source src="{{ asset($item->video) }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
                                             </div>
                                             <div class="card-footer">
-                                                <a href="{{ route('admin.listing-gallery.destroy', $image->id) }}"
+                                                <a href="{{ route('admin.listing-video-gallery.destroy', $item->id) }}"
                                                     class="btn btn-danger delete">Delete</a>
                                             </div>
                                         </div>
@@ -85,3 +96,16 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+
+            $('#show_input').click(function(e) {
+                e.preventDefault();
+                $('#video_url').parent().toggleClass('d-none');
+                $('#video').parent().toggleClass('d-none');
+            });
+        });
+    </script>
+@endpush

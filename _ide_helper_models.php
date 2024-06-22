@@ -196,11 +196,32 @@ namespace App\Models{
 /**
  * 
  *
+ * @property int $id
+ * @property int $listing_id
+ * @property string $image
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereListingId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingImageGallery whereUpdatedAt($value)
  */
 	class ListingImageGallery extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ListingVideoGallery query()
+ */
+	class ListingVideoGallery extends \Eloquent {}
 }
 
 namespace App\Models{
