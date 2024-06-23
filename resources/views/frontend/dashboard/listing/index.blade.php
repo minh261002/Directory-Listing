@@ -40,14 +40,14 @@
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <a href="{{ route('listing.create') }}">
-                                                                <i class="far fa-plus"></i>
+                                                            <a href="{{ route('listing.show', $item->id) }}">
+                                                                <i class="far fa-eye"></i>
                                                             </a>
                                                         </li>
                                                         <li><a href="{{ route('listing.edit', $item->id) }}">
                                                                 <i class="fal fa-edit"></i></a></li>
-                                                        <li class="delete"><a href="#"><i
-                                                                    class="fal fa-trash-alt"></i></a></li>
+                                                        <li><a href="{{ route('listing.destroy', $item->id) }}"
+                                                                class="delete"><i class="fal fa-trash-alt"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -82,14 +82,14 @@
                                                     </div>
                                                     <ul>
                                                         <li>
-                                                            <a href="{{ route('listing.create') }}">
-                                                                <i class="far fa-plus"></i>
+                                                            <a href="{{ route('listing.show', $item->id) }}">
+                                                                <i class="far fa-eye"></i>
                                                             </a>
                                                         </li>
                                                         <li><a href="{{ route('listing.edit', $item->id) }}">
                                                                 <i class="fal fa-edit"></i></a></li>
-                                                        <li class="delete"><a href="#"><i
-                                                                    class="fal fa-trash-alt"></i></a></li>
+                                                        <li><a href="{{ route('listing.destroy', $item->id) }}"
+                                                                class="delete"><i class="fal fa-trash-alt"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>

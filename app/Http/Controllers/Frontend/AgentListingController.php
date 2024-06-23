@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\AgentListingStoreRequest;
 use App\Models\Category;
 use App\Models\Listing;
+use App\Models\ListingImageGallery;
+use App\Models\ListingVideoGallery;
+use App\Models\ListingSchedule;
 use App\Models\Location;
 use App\Models\Amenity;
 use App\Models\ListingAmenity;
@@ -94,7 +97,11 @@ class AgentListingController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $listing = Listing::findOrFail($id);
+        $listingImageGallery = ListingImageGallery::where('listing_id', $id)->get();
+        $listingVideoGallery = ListingVideoGallery::where('listing_id', $id)->get();
+        $listingSchedule = ListingSchedule::where('listing_id', $id)->get();
+        return view('frontend.dashboard.listing.show', compact('listing', 'listingImageGallery', 'listingVideoGallery', 'listingSchedule'));
     }
 
     /**
@@ -165,6 +172,16 @@ class AgentListingController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $listing = Listing::findOrFail($id);
+            $this->deleteFile($listing->image);
+            $this->deleteFile($listing->thumbnail_image);
+            $this->deleteFile($listing->file);
+            $listing->delete();
+            Notify::success('Listing deleted successfully!');
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
     }
 }

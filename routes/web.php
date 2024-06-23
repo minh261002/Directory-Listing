@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Frontend\AgentListingController;
+use App\Http\Controllers\Frontend\AgentListingGalleryController;
+use App\Http\Controllers\Frontend\AgentListingScheduleController;
+use App\Http\Controllers\Frontend\AgentListingVideoGalleryController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProfileController as FrontendProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +20,12 @@ Route::middleware('auth')->group(function () {
 
     /* Listing */
     Route::resource('listing', AgentListingController::class);
+    /* Listing Gallery */
+    Route::resource('listing-gallery', AgentListingGalleryController::class)->only(['store', 'destroy']);
+    /* Listing Video Gallery */
+    Route::resource('listing-video-gallery', AgentListingVideoGalleryController::class)->only(['store', 'destroy']);
+    /* Listing Schedule */
+    Route::resource('listing-schedule', AgentListingScheduleController::class)->only(['store', 'destroy']);
 });
 
 require __DIR__ . '/auth.php';

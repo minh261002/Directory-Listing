@@ -19,6 +19,9 @@
 
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
     <!-- <link rel="stylesheet" href="css/rtl.css"> -->
 </head>
 
@@ -64,6 +67,8 @@
     <!--main/custom js-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
     <script>
         $('body').on('click', '.delete', function(e) {
             e.preventDefault()
