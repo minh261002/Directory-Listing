@@ -43,6 +43,7 @@
                     'admin.listing-schedule.*',
                     'admin.listing-gallery.*',
                     'admin.listing-video-gallery.*',
+                    'admin.approve.get',
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-th"></i>
@@ -67,7 +68,10 @@
                             'admin.listing-gallery.*',
                             'admin.listing-video-gallery.*',
                         ]) }}">
-                        <a class="nav-link" href="{{ route('admin.listing.index') }}">Listings</a>
+                        <a class="nav-link" href="{{ route('admin.listing.index') }}">All Listings</a>
+                    </li>
+                    <li class="{{ setSidebarActive(['admin.approve.get']) }}">
+                        <a class="nav-link" href="{{ route('admin.approve.get') }}">Pending Listing</a>
                     </li>
                 </ul>
             </li>

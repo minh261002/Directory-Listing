@@ -25,8 +25,8 @@ class AgentListingController extends Controller
      */
     public function index()
     {
-        $listingActive = Listing::where('user_id', auth()->id())->where('status', 1)->get();
-        $listingPending = Listing::where('user_id', auth()->id())->where('status', 0)->get();
+        $listingActive = Listing::where('user_id', auth()->id())->where('status', 1)->orderBy('id', 'DESC')->get();
+        $listingPending = Listing::where('user_id', auth()->id())->where('status', 0)->orderBy('id', 'DESC')->get();
         return view('frontend.dashboard.listing.index', compact('listingActive', 'listingPending'));
     }
 
@@ -76,7 +76,7 @@ class AgentListingController extends Controller
         $listing->seo_description = $request->meta_description;
         $listing->expire_date = date('Y-m-d');
         $listing->status = $request->status;
-        $listing->is_approved = 1;
+        $listing->is_approved = 0;
         $listing->is_featured = 0;
         $listing->status = $request->status;
         $listing->save();

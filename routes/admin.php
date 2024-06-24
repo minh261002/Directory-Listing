@@ -42,4 +42,7 @@ Route::group(['middleware' => ['auth', 'user.type:admin'], 'prefix' => 'admin', 
     Route::resource('listing-video-gallery', ListingVideoGalleryController::class);
     /* Listing Schedule */
     Route::resource('listing-schedule', ListingScheduleController::class);
+    /* Listing approve */
+    Route::get('listing/approve/get', [ListingController::class, 'getApprove'])->name('approve.get');
+    Route::put('listing/{listing}/approve', [ListingController::class, 'approve'])->name('listing.approve');
 });

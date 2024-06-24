@@ -176,4 +176,20 @@ class ListingController extends Controller
         Notify::success('Listing deleted successfully!');
         return response()->json(['success' => true]);
     }
+
+    public function getApprove()
+    {
+        $approveListing = Listing::where('is_approved', 0)->get();
+        return view('admin.listing.approve', compact('approveListing'));
+    }
+
+    public function approve(Request $request, string $id)
+    {
+        $listing = Listing::findOrFail($id);
+        $listing->is_approved = $request->status;
+        $listing->save();
+
+        Notify::success('Listing status updated successfully!');
+        return response()->json(['success' => true]);
+    }
 }

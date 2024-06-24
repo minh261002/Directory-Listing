@@ -71,7 +71,14 @@ class ListingDataTable extends DataTable
                     return '<span class="badge badge-danger">Inactive</span>';
                 }
             })
-            ->rawColumns(['image', 'action', 'status', 'category', 'location', 'featured', 'verified'])
+            ->addColumn('approved', function ($query) {
+                if ($query->is_approved == 1) {
+                    return '<span class="badge badge-success">Approved</span>';
+                } else {
+                    return '<span class="badge badge-danger">Pending</span>';
+                }
+            })
+            ->rawColumns(['image', 'action', 'status', 'category', 'location', 'featured', 'verified', 'approved'])
             ->setRowId('id');
     }
 
@@ -120,6 +127,8 @@ class ListingDataTable extends DataTable
             Column::make('featured')
                 ->width(80),
             Column::make('verified')
+                ->width(80),
+            Column::make('approved')
                 ->width(80),
             Column::computed('action')
                 ->width(200)
